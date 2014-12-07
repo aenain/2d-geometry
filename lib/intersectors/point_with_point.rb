@@ -1,9 +1,5 @@
-module Intersectors
-  PointWithPoint = Struct.new(:point_a, :point_b) do
-    def intersect
-      point_a if point_a == point_b
-    end
+require 'intersectors/any_with_point'
 
-    private :point_a, :point_b
-  end
+module Intersectors
+  PointWithPoint = AnyWithPoint
 end

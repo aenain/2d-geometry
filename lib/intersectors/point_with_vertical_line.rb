@@ -1,9 +1,9 @@
-module Intersectors
-  PointWithVerticalLine = Struct.new(:point, :line) do
-    def intersect
-      point if line.cover?(point)
-    end
+require 'intersectors/any_with_point'
 
-    private :point, :line
+module Intersectors
+  class PointWithVerticalLine < AnyWithPoint
+    def initialize(point, line)
+      super(line, point)
+    end
   end
 end

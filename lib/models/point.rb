@@ -6,6 +6,10 @@ class Point
     @y = y
   end
 
+  def cover?(point)
+    self == point
+  end
+
   def ==(other)
     x == other.x && y == other.y
   end
