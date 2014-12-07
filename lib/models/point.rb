@@ -6,6 +6,10 @@ class Point
     @y = y
   end
 
+  def coords
+    [x, y].map(&:to_f)
+  end
+
   def cover?(point)
     self == point
   end
@@ -13,4 +17,5 @@ class Point
   def ==(other)
     x == other.x && y == other.y
   end
+  alias_method :eql?, :==
 end

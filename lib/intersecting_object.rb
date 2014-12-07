@@ -8,6 +8,15 @@ class IntersectingObject < SimpleDelegator
     wrap(intersection) if intersection
   end
 
+  def intersect_on(other, attr_name, factory: default_factory)
+    return nil unless object
+    intersection = factory.new(
+      wrap(public_send(attr_name)),
+      wrap(other.public_send(attr_name))
+    ).intersect
+    wrap(intersection) if intersection
+  end
+
   def intersect_role
     object.class.name
   end

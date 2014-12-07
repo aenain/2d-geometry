@@ -14,3 +14,25 @@ RSpec.describe Point, '#==' do
     end
   end
 end
+
+RSpec.describe Point, '#coords' do
+
+end
+
+RSpec.describe Point, 'being unique' do
+  context 'when the same coordinates' do
+    it 'acts as duplicate' do
+      points = [Point.new(1.0, 2), Point.new(1, 2.0)]
+
+      expect(points.uniq(&:coords).count).to eq 1
+    end
+  end
+
+  context 'when different coords' do
+    it 'acts as unique' do
+      points = [Point.new(1.5, 2), Point.new(3, 2)]
+
+      expect(points.uniq(&:coords).count).to eq 2
+    end
+  end
+end
