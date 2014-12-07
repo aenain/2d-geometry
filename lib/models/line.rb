@@ -1,21 +1,22 @@
-require 'point'
+require_relative 'point'
 
 class Line
+  attr_reader :a, :b
+
   def initialize(a, b)
     @a = a
     @b = b
   end
 
-  def intersect(line)
-    if a == line.a && b == line.b
-      self
-    elsif a != line.a
-      x = (line.b - b).to_f / (a - line.a)
-      Point.new(x, a*x + b)
-    end
+  def cover?(point)
+    point.y == value(point.x)
   end
 
-  protected
+  def value(x)
+    a * x + b
+  end
 
-  attr_reader :a, :b
+  def ==(other)
+    a == other.a && b == other.b
+  end
 end
