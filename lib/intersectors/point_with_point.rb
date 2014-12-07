@@ -1,16 +1,9 @@
 module Intersectors
-  class PointWithPoint
-    def initialize(point_a, point_b)
-      @point_a = point_a
-      @point_b = point_b
-    end
-
+  PointWithPoint = Struct.new(:point_a, :point_b) do
     def intersect
       point_a if point_a == point_b
     end
 
-    private
-
-    attr_reader :point_a, :point_b
+    private :point_a, :point_b
   end
 end

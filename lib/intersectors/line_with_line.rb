@@ -1,12 +1,7 @@
 require 'models/point'
 
 module Intersectors
-  class LineWithLine
-    def initialize(line_a, line_b)
-      @line_a = line_a
-      @line_b = line_b
-    end
-
+  LineWithLine = Struct.new(:line_a, :line_b) do
     def intersect
       if line_a == line_b
         line_a
@@ -16,8 +11,6 @@ module Intersectors
       end
     end
 
-    private
-
-    attr_reader :line_a, :line_b
+    private :line_a, :line_b
   end
 end
