@@ -7,10 +7,11 @@ require 'models/point'
 
 RSpec.describe 'intersecting line with vertical line' do
   it 'returns correct point' do
-    line = IntersectingObject.new(Line.new(1, 1))
-    vertical_line = IntersectingObject.new(VerticalLine.new(3))
+    vertical_line = VerticalLine.new(3)
+    line = Line.new(1, 1)
 
-    intersection = vertical_line.intersect(line)
+    intersection = IntersectingObject.new(vertical_line)
+      .intersect(line)
 
     expect(intersection).to eq Point.new(3, 4)
   end
